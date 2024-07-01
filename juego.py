@@ -230,6 +230,7 @@ while corriendo:
                 if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
                     if nombre_jugador != "":
                         termino_texto_nombre = True
+                        nombre_vacio = False
                     else:
                         nombre_vacio = True
 
