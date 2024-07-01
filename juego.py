@@ -384,7 +384,6 @@ while corriendo:
             nombre_jugador = ""
             text_score_num, score = resetear_sumar_score(lista_indices, font, False)
             reiniciar_pasar_pregunta(lista_indices, True)
-
-
+            
     pygame.display.flip()
 pygame.quit
