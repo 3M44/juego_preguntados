@@ -89,15 +89,14 @@ text_salir = font.render("SALIR", True, color_blanco)
 text_pregunta = font.render("Pregunta", True, color_blanco)
 text_reiniciar = font.render("Reiniciar", True, color_blanco)
 text_score_txt = font.render("SCORE: ", True, color_blanco)
-
 text_volver_menu = font.render("VOLVER A MENU", True, color_negro)
 
 texto_preguntar_nombre = font.render("INGRESE SU NOMBRE (COMO MAXIMO 20 caracteres): ", True, color_blanco)
 text_pedir_nombre_valido = font.render("# PORFAVOR INGRESE UN NOMBRE QUE NO ESTE VACIO", True, color_verde)
 
 # SCORE Y SU TEXTO
-score = '0'
-text_score_num = font.render(score, True, color_blanco)
+score = 0
+text_score_num = font.render(str(score), True, color_blanco)
 
 # VARIABLES DE CONTROL
 corriendo = True
