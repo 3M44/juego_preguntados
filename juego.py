@@ -118,16 +118,15 @@ contador_fallas = 0
 contador_tiempo = 0
 
 while corriendo:
-    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             corriendo = False
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             if ventana_menu == True:
-                if rect_boton_salir.collidepoint(event.pos): # Logica de boton salir
+                if rect_boton_salir.collidepoint(event.pos): 
                     corriendo = False
-                if rect_boton_jugar.collidepoint(event.pos): # Logica botos jugar
+                if rect_boton_jugar.collidepoint(event.pos): 
                     ventana_menu = False
                     ventana_juego = True
                 if rect_boton_puntaje.collidepoint(event.pos):
@@ -158,7 +157,7 @@ while corriendo:
                         ocultar_c = False
                         ver_preguntas = False
 
-                    if rect_boton_pregunta.collidepoint(event.pos): # Logica de boton pregunta
+                    if rect_boton_pregunta.collidepoint(event.pos): 
                         if ver_preguntas == True:
                             reiniciar_pasar_pregunta(lista_indices)
                             ocultar_b = False
@@ -166,7 +165,7 @@ while corriendo:
                             ocultar_c = False
                         ver_preguntas = True
                     
-                    if rect_boton_reiniciar.collidepoint(event.pos): # Logica de boton reinicio
+                    if rect_boton_reiniciar.collidepoint(event.pos): 
                         text_score_num, score = resetear_sumar_score(lista_indices, font, False)
                         reiniciar_pasar_pregunta(lista_indices, True)
                         ocultar_b = False
@@ -174,7 +173,7 @@ while corriendo:
                         ocultar_c = False
 
                     if ver_preguntas == True:
-                        if rect_boton_opcion_a.collidepoint(event.pos): # Logica de la opcion a
+                        if rect_boton_opcion_a.collidepoint(event.pos):
                             if lista_respuesta[lista_indices[2]['respuesta']] == 'a':
                                 sonido_acertar_pregunta.play()
                                 correcta_a = True
@@ -189,7 +188,7 @@ while corriendo:
                                 ocultar_a = True
                                 contador_fallas +=1
 
-                        if rect_boton_opcion_b.collidepoint(event.pos): # Logica de la opcion b
+                        if rect_boton_opcion_b.collidepoint(event.pos):
                             if lista_respuesta[lista_indices[2]['respuesta']] == 'b':
                                 sonido_acertar_pregunta.play()
                                 correcta_b = True
@@ -205,7 +204,7 @@ while corriendo:
                                 ocultar_b = True
                                 contador_fallas +=1
 
-                        if rect_boton_opcion_c.collidepoint(event.pos): # Logica de la opcion c 
+                        if rect_boton_opcion_c.collidepoint(event.pos): 
                             if lista_respuesta[lista_indices[2]['respuesta']] == 'c':
                                 sonido_acertar_pregunta.play()
                                 correcta_c = True
@@ -294,10 +293,20 @@ while corriendo:
         else:
             text_posicion_tres_nombre = font.render("-"*31, True, color_negro)
 
-        
-        text_posicion_uno_num = font.render(str(lista_mejor_puntuacion[0]['score']), True, color_negro)
-        text_posicion_dos_num = font.render(str(lista_mejor_puntuacion[1]['score']), True, color_negro)
-        text_posicion_tres_num = font.render(str(lista_mejor_puntuacion[2]['score']), True, color_negro)
+        if lista_mejor_puntuacion[0]['score'] > -1:
+            text_posicion_uno_num = font.render(str(lista_mejor_puntuacion[0]['score']), True, color_negro)
+        else:
+            text_posicion_uno_num = font.render("0", True, color_negro)
+
+        if lista_mejor_puntuacion[1]['score'] > -1:
+            text_posicion_dos_num = font.render(str(lista_mejor_puntuacion[1]['score']), True, color_negro)
+        else:
+            text_posicion_dos_num = font.render("0", True, color_negro)
+
+        if lista_mejor_puntuacion[2]['score'] > -1:
+            text_posicion_tres_num = font.render(str(lista_mejor_puntuacion[2]['score']), True, color_negro)
+        else:
+            text_posicion_tres_num = font.render("0", True, color_negro)
         
         screen.blit(text_posicion_uno_nombre, (450, 260))
         screen.blit(text_posicion_uno_num, (965, 260))
