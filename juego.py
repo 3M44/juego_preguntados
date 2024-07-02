@@ -297,17 +297,17 @@ while corriendo:
         if lista_mejor_puntuacion[0]['score'] > -1:
             text_posicion_uno_num = font.render(str(lista_mejor_puntuacion[0]['score']), True, color_negro)
         else:
-            text_posicion_uno_num = font.render("0", True, color_negro)
+            text_posicion_uno_num = font.render("-", True, color_negro)
 
         if lista_mejor_puntuacion[1]['score'] > -1:
             text_posicion_dos_num = font.render(str(lista_mejor_puntuacion[1]['score']), True, color_negro)
         else:
-            text_posicion_dos_num = font.render("0", True, color_negro)
+            text_posicion_dos_num = font.render("-", True, color_negro)
 
         if lista_mejor_puntuacion[2]['score'] > -1:
             text_posicion_tres_num = font.render(str(lista_mejor_puntuacion[2]['score']), True, color_negro)
         else:
-            text_posicion_tres_num = font.render("0", True, color_negro)
+            text_posicion_tres_num = font.render("-", True, color_negro)
         
         screen.blit(text_posicion_uno_nombre, (450, 260))
         screen.blit(text_posicion_uno_num, (965, 260))
